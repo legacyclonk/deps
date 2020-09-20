@@ -35,7 +35,9 @@ jobs:
 
       - name: "Configure Arguments"
         run: |
+          echo "::set-env name=OUTPUT_DIR::$PWD/output"
           scripts/${{ matrix.env }}.sh
+          echo "::set-env name=CMAKE_CONFIGURE_ARGS::$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$PWD/output"
 
       - name: "Windows: Setup VS Dev Environment"
         if: ${{ matrix.os == 'windows-latest' }}
@@ -52,7 +54,17 @@ jobs:
           scripts/build.sh zlib
           scripts/build.sh glew
           scripts/build.sh SDL2
-          ls -R output
+
+      - name: "Windows: Build SDL2_mixer"
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: scripts/build.sh SDL2_mixer-win
+
+      - name: "Unix: Build SDL2_mixer"
+        if: ${{ matrix.os != 'windows-latest' }}
+        run: scripts/build.sh SDL2_mixer-unix
+
+      - name: Result
+        run: ls -R output
 
       - uses: actions/upload-artifact@v2
         with:
