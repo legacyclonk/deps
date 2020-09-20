@@ -1,0 +1,55 @@
+name: Build
+
+on: push
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  Build:
+    strategy:
+      max-parallel: 15
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            arch: Win32
+            env: Win32
+          - os: windows-latest
+            arch: Win64
+            env: Win64
+          - os: ubuntu-18.04
+            arch: x64
+            env: Linux
+          #- os: ubuntu-18.04
+            #arch: x86
+            #env: Linux
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Setup Directories"
+        run: mkdir output output/lib output/include
+
+      - name: "Configure Arguments"
+        run: |
+          scripts/${{ matrix.env }}.sh
+
+      - name: "Windows: Setup VS Dev Environment"
+        if: ${{ matrix.os == 'windows-latest' }}
+        uses: seanmiddleditch/gha-setup-vsdevenv@v1
+        with:
+          arch: ${{ env.VS_ARCH }}
+
+      - name: Build
+        run: |
+          scripts/build.sh zlib
+          ls -R output
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.env }}-${{ matrix.arch }}
+          path: |
+            output/*
