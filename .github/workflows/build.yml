@@ -51,6 +51,7 @@ jobs:
         run: |
           scripts/build.sh zlib
           scripts/build.sh glew
+          scripts/build.sh SDL2
           ls -R output
 
       - uses: actions/upload-artifact@v2
