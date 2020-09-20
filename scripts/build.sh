@@ -13,4 +13,4 @@ popd
 
 echo "$PWD"
 cp "${LIBS[@]}" output/lib/
-cp "${INCLUDES[@]}" output/include/
+cp -r "${INCLUDES[@]}" output/include/

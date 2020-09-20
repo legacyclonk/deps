@@ -43,9 +43,14 @@ jobs:
         with:
           arch: ${{ env.VS_ARCH }}
 
+      - name: "Linux: Setup Dependencies"
+        if: ${{ matrix.os == 'ubuntu-18.04' }}
+        run: DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev
+
       - name: Build
         run: |
           scripts/build.sh zlib
+          scripts/build.sh glew
           ls -R output
 
       - uses: actions/upload-artifact@v2
