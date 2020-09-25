@@ -60,6 +60,7 @@ jobs:
         if: ${{ matrix.os != 'windows-latest' }}
         run: |
           scripts/build.sh libpng
+          scripts/build.sh libjpeg-turbo
 
 
       - name: Result
