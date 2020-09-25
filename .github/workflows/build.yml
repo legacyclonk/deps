@@ -54,14 +54,7 @@ jobs:
           scripts/build.sh zlib
           scripts/build.sh glew
           scripts/build.sh SDL2
-
-      - name: "Windows: Build SDL2_mixer"
-        if: ${{ matrix.os == 'windows-latest' }}
-        run: scripts/build.sh SDL2_mixer-win
-
-      - name: "Unix: Build SDL2_mixer"
-        if: ${{ matrix.os != 'windows-latest' }}
-        run: scripts/build.sh SDL2_mixer-unix
+          scripts/build.sh SDL2_mixer
 
       - name: Result
         run: ls -R output

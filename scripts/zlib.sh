@@ -10,11 +10,8 @@ mkdir build
 pushd build
 
 cmake ../zlib-"$VERSION" -DBUILD_SHARED_LIBS=Off $CMAKE_CONFIGURE_ARGS
-cmake --build . --target zlibstatic $CMAKE_BUILD_ARGS
+cmake --build . $CMAKE_BUILD_ARGS
+cmake --install . $CMAKE_BUILD_ARGS
 
-LIBS=("$PWD"/"${OUTDIR}"*"$LIBSUFFIX")
-ZCONF="$PWD"/zconf.h
-popd
-pushd zlib-"$VERSION"
-INCLUDES=($ZCONF "$PWD/zlib.h")
+
 popd

@@ -12,5 +12,5 @@ source "$OLDPWD"/scripts/"$NAME".sh "$@"
 popd
 
 echo "$PWD"
-cp "${LIBS[@]}" output/lib/
-cp -r "${INCLUDES[@]}" output/include/
+if [ -n "$LIBS" ]; then cp "${LIBS[@]}" output/lib/; fi
+if [ -n "$INCLUDES" ]; then cp -r "${INCLUDES[@]}" output/include/; fi

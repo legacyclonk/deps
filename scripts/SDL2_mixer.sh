@@ -14,9 +14,7 @@ pushd build
 
 cmake .. -DBUILD_SHARED_LIBS=Off $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
+cmake --install . $CMAKE_BUILD_ARGS
 
-
-LIBS=("$PWD"/"${OUTDIR}"*"$LIBSUFFIX")
 popd
-INCLUDES=("$PWD"/SDL_mixer.h)
 popd
