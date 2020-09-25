@@ -61,6 +61,7 @@ jobs:
         run: |
           scripts/build.sh libpng
           scripts/build.sh libjpeg-turbo
+          scripts/build.sh openssl
 
 
       - name: Result
