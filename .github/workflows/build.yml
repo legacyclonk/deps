@@ -56,6 +56,12 @@ jobs:
           scripts/build.sh SDL2
           scripts/build.sh SDL2_mixer
 
+      - name: Build non-Windows
+        if: ${{ matrix.os != 'windows-latest' }}
+        run: |
+          scripts/build.sh libpng
+
+
       - name: Result
         run: ls -R output
 
