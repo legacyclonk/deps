@@ -18,8 +18,4 @@ pushd "$NAME"
 source "$OLDPWD"/scripts/"$NAME".sh "$@"
 popd
 
-echo "$PWD"
-if [ -n "$LIBS" ]; then cp "${LIBS[@]}" output/lib/; fi
-if [ -n "$INCLUDES" ]; then cp -r "${INCLUDES[@]}" output/include/; fi
-
 rm -r "$NAME"
