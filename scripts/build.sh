@@ -2,6 +2,13 @@
 
 set -e
 
+if [ -n "$CHROOT" ]; then
+	CHROOT_="$CHROOT"
+	unset CHROOT
+	$CHROOT_ "$0" "$@"
+	exit $?
+fi
+
 OLDPWD="$PWD"
 NAME="$1"
 shift

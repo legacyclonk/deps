@@ -22,9 +22,9 @@ jobs:
           - os: ubuntu-18.04
             arch: x64
             env: Linux
-          #- os: ubuntu-18.04
-            #arch: x86
-            #env: Linux
+          - os: ubuntu-18.04
+            arch: x86
+            env: Linux
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -46,9 +46,18 @@ jobs:
         with:
           arch: ${{ env.VS_ARCH }}
 
-      - name: "Linux: Setup Dependencies"
-        if: ${{ matrix.os == 'ubuntu-18.04' }}
+      - name: "Linux x64: Setup Dependencies"
+        if: ${{ matrix.os == 'ubuntu-18.04' && matrix.arch == 'x64' }}
         run: DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev
+
+      - name: "Linux x86: Setup chroot"
+        if: ${{ matrix.os == 'ubuntu-18.04' && matrix.arch == 'x86' }}
+        run: |
+          curl -L https://github.com/legacyclonk/ubuntu-1804-x86-chroot/releases/download/2020-09-26/chroot.tar.xz | sudo tar xJ
+          curl -L https://raw.githubusercontent.com/legacyclonk/ubuntu-1804-x86-chroot/master/setup_chroot.sh | sudo bash -e -
+          sudo mkdir -p chroot/$PWD
+          sudo mount --bind . chroot/$PWD
+          DEBIAN_FRONTEND=noninteractive $CHROOT apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm
 
       - name: Build zlib
         run: |
@@ -74,7 +83,7 @@ jobs:
           scripts/build.sh freetype
 
       - name: Remove bin
-        run: rm -r output/bin
+        run: $CHROOT rm -r output/bin
 
       - name: Result
         run: ls -R output
