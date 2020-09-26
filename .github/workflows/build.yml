@@ -83,3 +83,17 @@ jobs:
           name: ${{ matrix.env }}-${{ matrix.arch }}
           path: |
             output/*
+
+      - name: Pack
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        run: |
+          cd output
+          tar czf lc_deps-${{ matrix.env }}-${{ matrix.arch }}.tar.gz *
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        with:
+          files: output/lc_deps-${{ matrix.env }}-${{ matrix.arch }}.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
