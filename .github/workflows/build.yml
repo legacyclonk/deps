@@ -41,7 +41,9 @@ jobs:
           echo "::set-env name=OUTPUT_DIR::$PWD/output"
           platforms/${{ matrix.env }}.sh
           platforms/${{ matrix.env }}-${{ matrix.arch }}.sh
-          echo "::set-env name=CMAKE_CONFIGURE_ARGS::$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$PWD/output -DCMAKE_PREFIX_PATH=$PWD/output"
+
+      - name: "Set CMake paths"
+        run: echo "::set-env name=CMAKE_CONFIGURE_ARGS::$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$PWD/output -DCMAKE_PREFIX_PATH=$PWD/output"
 
       - name: "Windows: Setup VS Dev Environment"
         if: ${{ matrix.env == 'Windows' }}
