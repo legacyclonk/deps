@@ -47,7 +47,7 @@ jobs:
 
       - name: "Linux: Setup Dependencies"
         if: ${{ matrix.os == 'ubuntu-18.04' }}
-        run: DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev
+        run: DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev
 
       - name: Build zlib
         run: |
