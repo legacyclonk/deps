@@ -65,6 +65,7 @@ jobs:
           scripts/build.sh glew
           scripts/build.sh SDL2
           scripts/build.sh SDL2_mixer
+          scripts/build.sh freetype -DCMAKE_DISABLE_FIND_PACKAGE_HarfBuzz=TRUE
           scripts/build.sh harfbuzz
           scripts/build.sh freetype
 
