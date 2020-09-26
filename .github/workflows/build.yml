@@ -14,11 +14,11 @@ jobs:
       matrix:
         include:
           - os: windows-latest
-            arch: Win32
-            env: Win32
+            arch: x86
+            env: Windows
           - os: windows-latest
-            arch: Win64
-            env: Win64
+            arch: x64
+            env: Windows
           - os: ubuntu-18.04
             arch: x64
             env: Linux
@@ -36,7 +36,8 @@ jobs:
       - name: "Configure Arguments"
         run: |
           echo "::set-env name=OUTPUT_DIR::$PWD/output"
-          scripts/${{ matrix.env }}.sh
+          platforms/${{ matrix.env }}.sh
+          platforms/${{ matrix.env }}-${{ matrix.arch }}.sh
           echo "::set-env name=CMAKE_CONFIGURE_ARGS::$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$PWD/output -DCMAKE_PREFIX_PATH=$PWD/output"
 
       - name: "Windows: Setup VS Dev Environment"
