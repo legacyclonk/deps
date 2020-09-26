@@ -13,6 +13,6 @@ cmake ../zlib-"$VERSION" -DBUILD_SHARED_LIBS=Off $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
-rm -f $OUTPUT_DIR/lib/{libz.so*,zlib.lib} $OUTPUT_DIR/bin/{zlib.dll}
+rm -f $OUTPUT_DIR/lib/{libz.so*,zlib.lib}
 
 popd

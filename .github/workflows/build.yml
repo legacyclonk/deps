@@ -69,6 +69,8 @@ jobs:
           scripts/build.sh harfbuzz
           scripts/build.sh freetype
 
+      - name: Remove bin
+        run: rm -r output/bin
 
       - name: Result
         run: ls -R output
