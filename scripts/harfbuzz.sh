@@ -4,7 +4,7 @@ set -e
 
 VERSION=2.7.2
 
-curl -L https://github.com/harfbuzz/harfbuzz/releases/download/"$VERSION"/harfbuzz-"$VERSION".tar.xz | tar Jx
+curl -L https://github.com/harfbuzz/harfbuzz/releases/download/"$VERSION"/harfbuzz-"$VERSION".tar.xz | tar -xJ
 
 mkdir build
 pushd build

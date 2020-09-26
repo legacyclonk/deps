@@ -25,6 +25,9 @@ jobs:
           - os: ubuntu-18.04
             arch: x86
             env: Linux
+          - os: macos-10.15
+            arch: x64
+            env: Mac
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -98,7 +101,7 @@ jobs:
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         run: |
           cd output
-          tar czf lc_deps-${{ matrix.env }}-${{ matrix.arch }}.tar.gz *
+          tar -czf lc_deps-${{ matrix.env }}-${{ matrix.arch }}.tar.gz *
 
       - name: Release
         uses: softprops/action-gh-release@v1

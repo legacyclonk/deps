@@ -4,7 +4,7 @@ set -e
 
 VERSION=2.10.2
 
-curl -L https://download-mirror.savannah.gnu.org/releases/freetype/freetype-"$VERSION".tar.gz | tar xz
+curl -L https://download-mirror.savannah.gnu.org/releases/freetype/freetype-"$VERSION".tar.gz | tar -xz
 
 mkdir build
 pushd build

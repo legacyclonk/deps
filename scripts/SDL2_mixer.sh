@@ -4,7 +4,7 @@ set -e
 
 VERSION=2.0.4
 
-curl -L https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-"$VERSION".tar.gz | tar xz --exclude="Xcode*"
+curl -L https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-"$VERSION".tar.gz | tar -xz --exclude="Xcode*"
 
 pushd SDL2_mixer-"$VERSION"
 curl -L -O https://github.com/microsoft/vcpkg/raw/master/ports/sdl2-mixer/CMakeLists.txt

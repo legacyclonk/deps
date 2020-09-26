@@ -4,7 +4,7 @@ set -e
 
 VERSION=1.6.37
 
-curl -L https://downloads.sourceforge.net/sourceforge/libpng/libpng-"$VERSION".tar.gz | tar xz
+curl -L https://downloads.sourceforge.net/sourceforge/libpng/libpng-"$VERSION".tar.gz | tar -xz
 
 mkdir build
 pushd build

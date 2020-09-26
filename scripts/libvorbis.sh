@@ -4,7 +4,7 @@ set -e
 
 VERSION=1.3.7
 
-curl -L https://ftp.osuosl.org/pub/xiph/releases/vorbis/libvorbis-"$VERSION".tar.gz | tar xz
+curl -L https://ftp.osuosl.org/pub/xiph/releases/vorbis/libvorbis-"$VERSION".tar.gz | tar -xz
 
 mkdir build
 pushd build

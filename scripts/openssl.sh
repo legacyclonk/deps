@@ -4,7 +4,7 @@ set -e
 
 VERSION=1.1.1h
 
-curl -L https://www.openssl.org/source/openssl-"$VERSION".tar.gz | tar xz
+curl -L https://www.openssl.org/source/openssl-"$VERSION".tar.gz | tar -xz
 
 mkdir build
 pushd build

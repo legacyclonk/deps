@@ -4,7 +4,7 @@ set -e
 
 VERSION=1.2.11
 
-curl -L http://zlib.net/zlib-"$VERSION".tar.gz | tar xz
+curl -L http://zlib.net/zlib-"$VERSION".tar.gz | tar -xz
 
 mkdir build
 pushd build

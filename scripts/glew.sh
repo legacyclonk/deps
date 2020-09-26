@@ -4,7 +4,7 @@ set -e
 
 VERSION=2.1.0
 
-curl -L https://downloads.sourceforge.net/glew/glew-"$VERSION".tgz | tar xz
+curl -L https://downloads.sourceforge.net/glew/glew-"$VERSION".tgz | tar -xz
 
 pushd glew-"$VERSION"/build
 
