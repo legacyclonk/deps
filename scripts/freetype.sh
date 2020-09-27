@@ -13,5 +13,10 @@ cmake ../freetype-"$VERSION" -DCMAKE_DISABLE_FIND_PACKAGE_BrotliDec=TRUE -DCMAKE
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
-
 popd
+
+if [ -e $OUTPUT_DIR/lib/*harfbuzz* ]; then
+	pushd $OUTPUT_DIR/lib
+	$MERGE_LIBS freetype harfbuzz
+	popd
+fi

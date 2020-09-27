@@ -18,3 +18,7 @@ cmake --install . $CMAKE_BUILD_ARGS
 
 popd
 popd
+
+pushd $OUTPUT_DIR/lib
+$MERGE_LIBS SDL2_mixer modplug ogg vorbis vorbisfile
+popd
