@@ -53,7 +53,7 @@ jobs:
 
       - name: "Linux x64: Setup Dependencies"
         if: ${{ matrix.env == 'Linux' && matrix.arch == 'x64' }}
-        run: DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev
+        run: DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev nasm
 
       - name: "Linux x86: Setup chroot"
         if: ${{ matrix.env == 'Linux' && matrix.arch == 'x86' }}
