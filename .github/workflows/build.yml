@@ -45,7 +45,9 @@ jobs:
           platforms/${{ matrix.env }}-${{ matrix.arch }}.sh
 
       - name: "Set CMake paths"
-        run: echo "CMAKE_CONFIGURE_ARGS=$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$PWD/output -DCMAKE_PREFIX_PATH=$PWD/output" >> $GITHUB_ENV
+        run: |
+          echo "CMAKE_CONFIGURE_ARGS=$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$OUTPUT_DIR -DCMAKE_PREFIX_PATH=$OUTPUT_DIR" >> $GITHUB_ENV
+          echo "MESON_CONFIGURE_ARGS=$MESON_CONFIGURE_ARGS --prefix $OUTPUT_DIR -Dlibdir=$OUTPUT_DIR/lib -Dbuildtype=release" >> $GITHUB_ENV
 
       - name: "Windows: Setup VS Dev Environment"
         if: ${{ matrix.env == 'Windows' }}
@@ -55,7 +57,10 @@ jobs:
 
       - name: "Linux x64: Setup Dependencies"
         if: ${{ matrix.env == 'Linux' && matrix.arch == 'x64' }}
-        run: DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev nasm
+        run: |
+          sudo add-apt-repository ppa:savoury1/build-tools
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev nasm meson ninja-build libffi-dev
 
       - name: "Linux x86: Setup chroot"
         if: ${{ matrix.env == 'Linux' && matrix.arch == 'x86' }}
@@ -64,7 +69,9 @@ jobs:
           curl -L https://raw.githubusercontent.com/legacyclonk/ubuntu-1804-x86-chroot/master/setup_chroot.sh | sudo bash -e -
           sudo mkdir -p chroot/$PWD
           sudo mount --bind . chroot/$PWD
-          DEBIAN_FRONTEND=noninteractive $CHROOT apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm
+          $CHROOT add-apt-repository ppa:savoury1/build-tools
+          $CHROOT apt-get update
+          DEBIAN_FRONTEND=noninteractive $CHROOT apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm meson ninja-build libffi-dev
 
       - name: Build zlib
         run: |
@@ -86,6 +93,7 @@ jobs:
       - name: Build Linux
         if: ${{ matrix.env == 'Linux' }}
         run: |
+          scripts/build.sh glib
           scripts/build.sh fluidsynth
 
       - name: Build more

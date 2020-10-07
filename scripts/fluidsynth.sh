@@ -17,3 +17,7 @@ cmake --install . $CMAKE_BUILD_ARGS
 rm $OUTPUT_DIR/bin/fluidsynth
 
 popd
+
+pushd $OUTPUT_DIR/lib
+$MERGE_LIBS fluidsynth glib-2.0 gthread-2.0
+popd
