@@ -103,6 +103,7 @@ jobs:
           scripts/build.sh atk
           scripts/build.sh gdk-pixbuf
           scripts/build.sh pixman
+          scripts/build.sh cairo
 
       - name: Remove bin
         run: $CHROOT rm -r output/bin
