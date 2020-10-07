@@ -104,6 +104,7 @@ jobs:
           scripts/build.sh gdk-pixbuf
           scripts/build.sh pixman
           scripts/build.sh cairo
+          scripts/build.sh pango
 
       - name: Remove bin
         run: $CHROOT rm -r output/bin
