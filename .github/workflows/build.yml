@@ -105,6 +105,7 @@ jobs:
           scripts/build.sh pixman
           scripts/build.sh cairo
           scripts/build.sh pango
+          scripts/build.sh gtk2
 
       - name: Remove bin
         run: $CHROOT rm -r output/bin
