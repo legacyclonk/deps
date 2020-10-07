@@ -45,7 +45,7 @@ jobs:
       - name: "Set CMake paths"
         run: |
           echo "::set-env name=CMAKE_CONFIGURE_ARGS::$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$PWD/output -DCMAKE_PREFIX_PATH=$PWD/output"
-          echo "::set-env name=MESON_CONFIGURE_ARGS::$MESON_CONFIGURE_ARGS --prefix $PWD/output"
+          echo "::set-env name=MESON_CONFIGURE_ARGS::$MESON_CONFIGURE_ARGS --prefix $PWD/output --libdir=lib --pkg-config-path $PWD/output/lib/pkgconfig --cmake-prefix-path $PWD/output"
 
       - name: "Windows: Setup VS Dev Environment"
         if: ${{ matrix.env == 'Windows' }}
@@ -98,6 +98,7 @@ jobs:
         if: ${{ matrix.env == 'Linux' }}
         run: |
           scripts/build.sh glib
+          scripts/build.sh atk
 
       - name: Remove bin
         run: $CHROOT rm -r output/bin
