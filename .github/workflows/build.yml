@@ -30,6 +30,8 @@ jobs:
             env: Mac
 
     runs-on: ${{ matrix.os }}
+    env:
+      OS: ${{ matrix.env }}
     steps:
       - uses: actions/checkout@v2
 
