@@ -30,6 +30,8 @@ jobs:
             env: Mac
 
     runs-on: ${{ matrix.os }}
+    env:
+      OS: ${{ matrix.env }}
     steps:
       - uses: actions/checkout@v2
 
@@ -77,6 +79,7 @@ jobs:
 
       - name: Build
         run: |
+          scripts/build.sh libcurl
           scripts/build.sh glew
           scripts/build.sh SDL2
           scripts/build.sh libogg
