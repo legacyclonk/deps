@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "::set-env name=CMAKE_CONFIGURE_ARGS::-A Win32"
-echo "::set-env name=VS_ARCH::x86"
+echo "CMAKE_CONFIGURE_ARGS=-A Win32" >> $GITHUB_ENV
+echo "VS_ARCH=x86" >> $GITHUB_ENV

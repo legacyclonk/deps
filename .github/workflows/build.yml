@@ -40,12 +40,12 @@ jobs:
 
       - name: "Configure Arguments"
         run: |
-          echo "::set-env name=OUTPUT_DIR::$PWD/output"
+          echo "OUTPUT_DIR=$PWD/output" >> $GITHUB_ENV
           platforms/${{ matrix.env }}.sh
           platforms/${{ matrix.env }}-${{ matrix.arch }}.sh
 
       - name: "Set CMake paths"
-        run: echo "::set-env name=CMAKE_CONFIGURE_ARGS::$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$PWD/output -DCMAKE_PREFIX_PATH=$PWD/output"
+        run: echo "CMAKE_CONFIGURE_ARGS=$CMAKE_CONFIGURE_ARGS -DCMAKE_INSTALL_PREFIX=$PWD/output -DCMAKE_PREFIX_PATH=$PWD/output" >> $GITHUB_ENV
 
       - name: "Windows: Setup VS Dev Environment"
         if: ${{ matrix.env == 'Windows' }}
