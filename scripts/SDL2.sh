@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.0.14
+VERSION=2.0.16
 
 curl -L https://www.libsdl.org/release/SDL2-"$VERSION".tar.gz | tar -xz
 
