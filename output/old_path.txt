@@ -1,1 +1,1 @@
-/home/runner/work/deps/deps/output/
+/home/runner/work/deps/deps/output
