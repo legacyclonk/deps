@@ -9,6 +9,8 @@ curl -L https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-"$VERSION".
 pushd SDL2_mixer-"$VERSION"
 curl -L -O https://github.com/microsoft/vcpkg/raw/master/ports/sdl2-mixer/CMakeLists.txt
 
+curl -L https://hg.libsdl.org/SDL_mixer/raw-rev/b0afe341a91d | patch -Np3
+
 mkdir build
 pushd build
 
