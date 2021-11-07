@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: "Setup Directories"
-        run: mkdir output output/lib output/include
+        run: mkdir -p output output/lib output/include
 
       - name: "Configure Arguments"
         run: |
