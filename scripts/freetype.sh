@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.11.1
+VERSION=2.12.0
 
 curl -L https://download-mirror.savannah.gnu.org/releases/freetype/freetype-"$VERSION".tar.gz | tar -xz
 

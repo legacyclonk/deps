@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=3.4.0
+VERSION=4.2.0
 
 curl -L https://github.com/harfbuzz/harfbuzz/releases/download/"$VERSION"/harfbuzz-"$VERSION".tar.xz | tar -xJ
 
