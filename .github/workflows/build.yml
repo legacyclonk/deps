@@ -42,6 +42,9 @@ jobs:
         run: |
           echo "OUTPUT_DIR=$PWD/output" >> $GITHUB_ENV
           platforms/${{ matrix.env }}.sh
+
+      - name: "Configure Arguments 2"
+        run: |
           platforms/${{ matrix.env }}-${{ matrix.arch }}.sh
 
       - name: "Set CMake paths"
@@ -93,6 +96,7 @@ jobs:
           scripts/build.sh libogg
           scripts/build.sh libvorbis
           scripts/build.sh libmodplug
+          scripts/build.sh mpg123
           scripts/build.sh SDL2_mixer
           scripts/build.sh freetype -DCMAKE_DISABLE_FIND_PACKAGE_HarfBuzz=TRUE
           scripts/build.sh harfbuzz
