@@ -15,16 +15,14 @@ curl -L https://github.com/microsoft/vcpkg/raw/master/ports/sdl2-mixer/fix-featu
 mkdir build
 pushd build
 
+OS_OPTIONS=""
+
 if [ "$OS" = "Linux" ]; then
-	cat >> ../CMakeLists.txt <<EOF
-find_package(FluidSynth REQUIRED)
-target_include_directories(SDL2_mixer PRIVATE ${FLUIDSYNTH_INCLUDE_DIR})
-target_compile_definitions(SDL2_mixer PRIVATE MUSIC_MID_FLUIDSYNTH)
-EOF
+	OS_OPTIONS="-DSDL_MIXER_ENABLE_FLUIDSYNTH=On"
 	EXTRA_MERGE_LIBS=fluidsynth
 fi
 
-cmake .. -DBUILD_SHARED_LIBS=Off -DSDL_MIXER_ENABLE_OGGVORBIS=On -DSDL_MIXER_ENABLE_NATIVEMIDI=On -DSDL_MIXER_ENABLE_MOD=On -DSDL_MIXER_ENABLE_MP3=On -DCMAKE_MODULE_PATH=$OUTPUT_DIR/../cmake $CMAKE_CONFIGURE_ARGS
+cmake .. -DBUILD_SHARED_LIBS=Off -DSDL_MIXER_ENABLE_OGGVORBIS=On -DSDL_MIXER_ENABLE_NATIVEMIDI=On -DSDL_MIXER_ENABLE_MOD=On -DSDL_MIXER_ENABLE_MP3=On -DCMAKE_MODULE_PATH=$OUTPUT_DIR/../cmake $OS_OPTIONS $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
