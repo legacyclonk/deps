@@ -99,7 +99,7 @@ jobs:
           scripts/build.sh freetype
 
       - name: Remove bin
-        run: $CHROOT rm -r output/bin
+        run: $CHROOT rm -rf output/bin
 
       - name: Result
         run: ls -R output
