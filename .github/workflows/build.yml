@@ -79,7 +79,7 @@ jobs:
 
       - name: Build
         run: |
-          scripts/build.sh libcurl
+          # scripts/build.sh libcurl
           scripts/build.sh glew
           scripts/build.sh SDL2
 
