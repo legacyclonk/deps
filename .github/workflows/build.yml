@@ -55,13 +55,6 @@ jobs:
         with:
           arch: ${{ env.VS_ARCH }}
 
-      - name: "Linux x64: Setup Dependencies"
-        if: ${{ matrix.env == 'Linux' && matrix.arch == 'x64' }}
-        run: |
-          sudo add-apt-repository ppa:savoury1/build-tools
-          sudo apt-get update
-          DEBIAN_FRONTEND=noninteractive sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev nasm meson ninja-build libffi-dev
-
       - name: "Linux x86: Setup chroot"
         if: ${{ matrix.env == 'Linux' && matrix.arch == 'x86' }}
         run: |
@@ -69,9 +62,14 @@ jobs:
           curl -L https://raw.githubusercontent.com/legacyclonk/ubuntu-1804-x86-chroot/master/setup_chroot.sh | sudo bash -e -
           sudo mkdir -p chroot/$PWD
           sudo mount --bind . chroot/$PWD
-          $CHROOT add-apt-repository ppa:savoury1/build-tools
-          $CHROOT apt-get update
-          DEBIAN_FRONTEND=noninteractive $CHROOT apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm meson ninja-build libffi-dev
+
+      - name: "Linux: Setup packages"
+        if: ${{ matrix.env == 'Linux' }}
+        run: |
+          $CHROOT sudo add-apt-repository ppa:savoury1/build-tools
+          $CHROOT sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive $CHROOT sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm meson ninja-build libffi-dev
+          $CHROOT sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10 --slave /usr/bin/gcov gcov /usr/bin/gcov-10
 
       - name: Build zlib
         run: |
