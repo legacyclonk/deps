@@ -67,8 +67,9 @@ jobs:
         if: ${{ matrix.env == 'Linux' }}
         run: |
           $CHROOT sudo add-apt-repository ppa:savoury1/build-tools
+          $CHROOT sudo add-apt-repository ppa:ubuntu-toolchain-r/test
           $CHROOT sudo apt-get update
-          DEBIAN_FRONTEND=noninteractive $CHROOT sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm meson ninja-build libffi-dev
+          DEBIAN_FRONTEND=noninteractive $CHROOT sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm meson ninja-build libffi-dev gcc-10 g++-10
           $CHROOT sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10 --slave /usr/bin/gcov gcov /usr/bin/gcov-10
 
       - name: Build zlib
