@@ -13,5 +13,6 @@ cmake ../harfbuzz-"$VERSION" -DHB_BUILD_SUBSET=Off -DHB_HAVE_FREETYPE=On -DBUILD
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
-
 popd
+
+license HarfBuzz "harfbuzz-$VERSION/COPYING" '\"Old MIT\"'

@@ -15,3 +15,5 @@ cmake --install . $CMAKE_BUILD_ARGS
 rm -f "$OUTPUT_DIR"/lib/{libz.so*,libz*.dylib,zlib.lib}
 
 popd
+
+license zlib-ng "zlib-ng-$VERSION/LICENSE.md" zlib

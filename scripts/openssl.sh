@@ -14,3 +14,5 @@ $MAKE_CMD
 $MAKE_CMD install_sw
 
 popd
+
+license OpenSSL "openssl-$VERSION/LICENSE"

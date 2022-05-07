@@ -21,4 +21,6 @@ cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
 popd
+
+license libmodplug "COPYING" "Public Domain"
 popd

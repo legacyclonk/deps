@@ -13,3 +13,5 @@ cmake --build . --target glew_s $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
 popd
+
+license GLEW "glew-$VERSION/LICENSE.txt"

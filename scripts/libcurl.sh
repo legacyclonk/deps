@@ -23,3 +23,5 @@ cmake --install . $CMAKE_BUILD_ARGS
 
 
 popd
+
+license curl "curl-$VERSION/COPYING"

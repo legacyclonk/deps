@@ -26,8 +26,11 @@ cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
 popd
+
+license SDL2_mixer "COPYING.txt" zlib
 popd
 
 pushd $OUTPUT_DIR/lib
 $MERGE_LIBS SDL2_mixer modplug ogg vorbis vorbisfile $EXTRA_MERGE_LIBS
 popd
+

@@ -14,3 +14,5 @@ cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
 popd
+
+license libvorbis "libvorbis-$VERSION/COPYING" "BSD 3-Clause"

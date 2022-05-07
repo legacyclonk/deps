@@ -20,3 +20,5 @@ popd
 pushd SDL2-"$VERSION"
 INCLUDES=("$PWD"/include/*)
 popd
+
+license SDL2 "SDL2-$VERSION/LICENSE.txt" zlib

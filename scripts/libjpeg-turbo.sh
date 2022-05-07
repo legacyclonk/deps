@@ -14,3 +14,5 @@ cmake --install . $CMAKE_BUILD_ARGS
 
 
 popd
+
+license libjpeg-turbo "libjpeg-turbo-$VERSION/LICENSE.md"

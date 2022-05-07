@@ -15,3 +15,5 @@ cmake --install . $CMAKE_BUILD_ARGS
 
 
 popd
+
+license libpng "libpng-$VERSION/LICENSE"

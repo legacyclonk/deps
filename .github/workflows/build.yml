@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: "Setup Directories"
-        run: mkdir -p output output/lib output/include
+        run: mkdir -p output output/lib output/include output/licenses
 
       - name: "Configure Arguments"
         run: |
@@ -103,7 +103,7 @@ jobs:
           scripts/build.sh SDL2_mixer
           scripts/build.sh freetype -DCMAKE_DISABLE_FIND_PACKAGE_HarfBuzz=TRUE
           scripts/build.sh harfbuzz
-          scripts/build.sh freetype
+          NOLICENSE=1 scripts/build.sh freetype
 
       - name: Remove bin
         run: $CHROOT rm -rf output/bin
