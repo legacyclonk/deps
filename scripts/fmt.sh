@@ -10,7 +10,7 @@ curl -L -o fmt.zip "https://github.com/fmtlib/fmt/releases/download/$VERSION/fmt
 mkdir build
 pushd build
 
-cmake "../fmt-$VERSION" -DBUILD_SHARED_LIBS=OFF -DFMT_DOC=OFF -DFMT_TEST=OFF $CMAKE_CONFIGURE_ARGS
+cmake "../fmt-$VERSION" -DFMT_DOC=OFF -DFMT_TEST=OFF $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 

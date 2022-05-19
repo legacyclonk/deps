@@ -16,7 +16,7 @@ cat src/modplug.h.orig >> src/modplug.h
 mkdir build
 pushd build
 
-cmake .. -DBUILD_SHARED_LIBS=Off $CMAKE_CONFIGURE_ARGS
+cmake .. $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 

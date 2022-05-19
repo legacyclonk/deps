@@ -8,7 +8,7 @@ curl -L https://github.com/zlib-ng/zlib-ng/archive/refs/tags/"$VERSION".tar.gz |
 mkdir build
 pushd build
 
-cmake ../zlib-ng-"$VERSION" -DBUILD_SHARED_LIBS=Off -DZLIB_COMPAT=On -DZLIB_ENABLE_TESTS=Off -DWITH_GZFILEOP=Off $CMAKE_CONFIGURE_ARGS
+cmake ../zlib-ng-"$VERSION" -DZLIB_COMPAT=On -DZLIB_ENABLE_TESTS=Off -DWITH_GZFILEOP=Off $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 

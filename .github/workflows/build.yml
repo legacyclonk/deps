@@ -38,12 +38,16 @@ jobs:
       - name: "Setup Directories"
         run: mkdir -p output output/lib output/include output/licenses
 
-      - name: "Configure Arguments"
+      - name: "Configure Arguments: Common"
         run: |
           echo "OUTPUT_DIR=$PWD/output" >> $GITHUB_ENV
+          platforms/common.sh
+
+      - name: "Configure Arguments: OS"
+        run: |
           platforms/${{ matrix.env }}.sh
 
-      - name: "Configure Arguments 2"
+      - name: "Configure Arguments: Architecture"
         run: |
           platforms/${{ matrix.env }}-${{ matrix.arch }}.sh
 

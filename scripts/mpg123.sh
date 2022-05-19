@@ -8,7 +8,7 @@ curl -L https://downloads.sourceforge.net/sourceforge/mpg123/mpg123-"$VERSION".t
 mkdir build
 pushd build
 
-cmake ../mpg123-"$VERSION"/ports/cmake -DBUILD_SHARED_LIBS=Off -DBUILD_LIBOUT123=Off -DBUILD_PROGRAMS=Off -DNETWORK=Off $CMAKE_CONFIGURE_ARGS
+cmake ../mpg123-"$VERSION"/ports/cmake -DBUILD_LIBOUT123=Off -DBUILD_PROGRAMS=Off -DNETWORK=Off $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 

@@ -8,7 +8,7 @@ curl -L https://downloads.sourceforge.net/project/libjpeg-turbo/"$VERSION"/libjp
 mkdir build
 pushd build
 
-cmake ../libjpeg-turbo-"$VERSION" -DENABLE_SHARED=Off -DWITH_JPEG8=On -DWITH_TURBOJPEG=Off -DBUILD_SHARED_LIBS=Off $CMAKE_CONFIGURE_ARGS
+cmake ../libjpeg-turbo-"$VERSION" -DENABLE_SHARED=Off -DWITH_JPEG8=On -DWITH_TURBOJPEG=Off $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
