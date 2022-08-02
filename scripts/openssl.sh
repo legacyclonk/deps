@@ -2,9 +2,9 @@
 
 set -e
 
-VERSION=3.1.1
+VERSION=3.3.1
 
-curl -L https://www.openssl.org/source/openssl-"$VERSION".tar.gz | tar -xz
+curl -L https://github.com/openssl/openssl/releases/download/openssl-"$VERSION"/openssl-"$VERSION".tar.gz | tar -xz
 
 mkdir build
 pushd build
