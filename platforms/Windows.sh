@@ -1,7 +1,6 @@
 #!/bin/bash
 echo "CMAKE_CONFIGURE_ARGS=$CMAKE_CONFIGURE_ARGS -DYASM_ASSEMBLER=$PWD/yasm.exe" >> $GITHUB_ENV
 echo "CMAKE_BUILD_ARGS=--config Release" >> $GITHUB_ENV
-echo "MERGE_LIBS=$PWD/platforms/merge_libs_vc.sh" >> $GITHUB_ENV
 
 YASM_VERSION=1.3.0
 

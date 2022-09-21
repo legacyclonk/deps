@@ -19,9 +19,3 @@ cmake --install . $CMAKE_BUILD_ARGS
 
 popd
 license freetype "freetype-$VERSION/docs/FTL.TXT"
-
-if [ -e $OUTPUT_DIR/lib/*harfbuzz* ]; then
-	pushd $OUTPUT_DIR/lib
-	$MERGE_LIBS freetype harfbuzz
-	popd
-fi

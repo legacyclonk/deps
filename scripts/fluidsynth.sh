@@ -19,7 +19,3 @@ rm $OUTPUT_DIR/bin/fluidsynth
 popd
 
 license FluidSynth "fluidsynth-$VERSION/LICENSE" "LGPL-2.1"
-
-pushd $OUTPUT_DIR/lib
-$MERGE_LIBS fluidsynth glib-2.0 gthread-2.0
-popd

@@ -19,7 +19,6 @@ OS_OPTIONS=""
 
 if [ "$OS" = "Linux" ]; then
 	OS_OPTIONS="-DSDL2MIXER_MIDI_FLUIDSYNTH=ON"
-	EXTRA_MERGE_LIBS=fluidsynth
 else
 	OS_OPTIONS="-DSDL2MIXER_MIDI_FLUIDSYNTH=OFF -DSDL2MIXER_MIDI_NATIVE=ON"
 fi
@@ -46,8 +45,3 @@ popd
 
 license SDL2_mixer "LICENSE.txt" zlib
 popd
-
-pushd $OUTPUT_DIR/lib
-$MERGE_LIBS SDL2_mixer modplug ogg vorbis vorbisfile mpg123 $EXTRA_MERGE_LIBS
-popd
-
