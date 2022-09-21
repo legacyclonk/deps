@@ -30,6 +30,7 @@ if [ -n "$CHROOT" ]; then
 	exit $?
 fi
 
+export PATCH_DIR="$(cd "$(dirname "$0")/../patches"; pwd -P)"
 OLDPWD="$PWD"
 NAME="$1"
 shift

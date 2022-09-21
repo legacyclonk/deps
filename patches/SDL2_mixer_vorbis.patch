@@ -1,0 +1,56 @@
+--- a/SDL2_mixerConfig.cmake.in	2022-09-21 20:10:59.399196246 +0000
++++ b/SDL2_mixerConfig.cmake.in	2022-09-21 20:11:03.133238222 +0000
+@@ -81,8 +81,8 @@
+         find_dependency(tremor)
+     endif()
+ 
+-    if(SDL2MIXER_VORBIS_VORBISFILE AND NOT SDL2MIXER_VENDORED AND NOT TARGET vorbisfile::vorbisfile)
+-        find_dependency(vorbisfile)
++    if(SDL2MIXER_VORBIS_VORBISFILE AND NOT SDL2MIXER_VENDORED AND NOT TARGET Vorbis::vorbisfile)
++        find_dependency(Vorbis)
+     endif()
+ 
+     if((NOT SDL2MIXER_VENDORED AND SDL2MIXER_MOD_MODPLUG) OR (HAIKU AND SDL2MIXER_MIDI_NATIVE))
+--- a/CMakeLists.txt	2022-09-21 20:07:34.224910107 +0000
++++ b/CMakeLists.txt	2022-09-21 20:09:11.577989527 +0000
+@@ -467,25 +467,25 @@
+         endif()
+     else()
+         message(STATUS "Using system vorbisfile")
+-        find_package(vorbisfile REQUIRED)
++        find_package(Vorbis REQUIRED)
+         if(NOT SDL2MIXER_VORBIS_VORBISFILE_SHARED)
+             list(APPEND PC_REQUIRES vorbisfile)
+         endif()
+     endif()
+     if(SDL2MIXER_VORBIS_VORBISFILE_SHARED)
+         target_include_directories(SDL2_mixer PRIVATE
+-            $<TARGET_PROPERTY:vorbisfile::vorbisfile,INCLUDE_DIRECTORIES>
+-            $<TARGET_PROPERTY:vorbisfile::vorbisfile,INTERFACE_INCLUDE_DIRECTORIES>
+-            $<TARGET_PROPERTY:vorbisfile::vorbisfile,INTERFACE_SYSTEM_INCLUDE_DIRECTORIES>
++            $<TARGET_PROPERTY:Vorbis::vorbisfile,INCLUDE_DIRECTORIES>
++            $<TARGET_PROPERTY:Vorbis::vorbisfile,INTERFACE_INCLUDE_DIRECTORIES>
++            $<TARGET_PROPERTY:Vorbis::vorbisfile,INTERFACE_SYSTEM_INCLUDE_DIRECTORIES>
+         )
+-        target_get_dynamic_library(dynamic_vorbisfile vorbisfile::vorbisfile)
++        target_get_dynamic_library(dynamic_vorbisfile Vorbis::vorbisfile)
+         message(STATUS "Dynamic vorbisfile: ${dynamic_vorbisfile}")
+         target_compile_definitions(SDL2_mixer PRIVATE "OGG_DYNAMIC=\"${dynamic_vorbisfile}\"")
+         if(SDL2MIXER_VENDORED)
+-            add_dependencies(SDL2_mixer vorbisfile::vorbisfile)
++            add_dependencies(SDL2_mixer Vorbis::vorbisfile)
+         endif()
+     else()
+-        target_link_libraries(SDL2_mixer PRIVATE vorbisfile::vorbisfile)
++        target_link_libraries(SDL2_mixer PRIVATE Vorbis::vorbisfile)
+     endif()
+ endif()
+ 
+@@ -783,7 +783,6 @@
+                 cmake/Findmodplug.cmake
+                 cmake/Findopusfile.cmake
+                 cmake/FindMPG123.cmake
+-                cmake/Findvorbisfile.cmake
+                 cmake/Findtremor.cmake
+             DESTINATION "${PKG_PREFIX}"
+             COMPONENT devel
