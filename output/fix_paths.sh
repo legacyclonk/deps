@@ -3,8 +3,6 @@
 # run this after extraction or moving of the deps folder to adjust absolute paths in cmake and pkgconfig files
 # no arguments needed
 
-shopt -s globstar
-
 # https://stackoverflow.com/a/23002317
 function abspath() {
     # generate absolute path from relative path
@@ -34,5 +32,9 @@ NEW_PATH=$(cd "$SCRIPT_DIR"; pwd -W 2>/dev/null || pwd)
 
 echo "$OLD_PATH -> $NEW_PATH"
 
-#sed -i'' -e"s@$OLD_PATH@$NEW_PATH@g" **/*.pc **/*.cmake
-#echo $NEW_PATH > $OLD_PATH_FILE
+IFS=$'\n'
+FILES=($(find . \( -name '*.pc' -or -name '*.cmake' \)))
+unset IFS
+
+perl -i -pe"s@$OLD_PATH@$NEW_PATH@g" "${FILES[@]}"
+echo $NEW_PATH > $OLD_PATH_FILE
