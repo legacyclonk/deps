@@ -30,9 +30,9 @@ SCRIPT_DIR=$(abspath "$(dirname $0)")
 OLD_PATH_FILE="$SCRIPT_DIR/old_path.txt"
 
 OLD_PATH="$(cat $OLD_PATH_FILE)"
-NEW_PATH=$SCRIPT_DIR
+NEW_PATH=$(cd "$SCRIPT_DIR"; pwd -W 2>/dev/null || pwd)
 
 echo "$OLD_PATH -> $NEW_PATH"
 
-sed -i'' -e"s@$OLD_PATH@$NEW_PATH@g" **/*.pc **/*.cmake
-echo $NEW_PATH > $OLD_PATH_FILE
+#sed -i'' -e"s@$OLD_PATH@$NEW_PATH@g" **/*.pc **/*.cmake
+#echo $NEW_PATH > $OLD_PATH_FILE

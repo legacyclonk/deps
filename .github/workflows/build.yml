@@ -40,7 +40,7 @@ jobs:
 
       - name: "Configure Arguments: Common"
         run: |
-          echo "OUTPUT_DIR=$PWD/output" >> $GITHUB_ENV
+          echo "OUTPUT_DIR=$(pwd -W 2>/dev/null || pwd)/output" >> $GITHUB_ENV
           platforms/common.sh
 
       - name: "Configure Arguments: OS"
@@ -117,6 +117,10 @@ jobs:
 
       - name: Remove bin
         run: $CHROOT rm -rf output/bin
+
+      - name: Generate old_path.txt
+        run: |
+          echo "$OUTPUT_DIR" > $OUTPUT_DIR/old_path.txt
 
       - name: Result
         run: ls -R output
