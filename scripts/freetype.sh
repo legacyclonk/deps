@@ -6,6 +6,10 @@ VERSION=2.12.1
 
 curl -L https://download-mirror.savannah.gnu.org/releases/freetype/freetype-"$VERSION".tar.gz | tar -xz
 
+pushd freetype-"$VERSION"
+patch -p1 <"$PATCH_DIR/freetype.patch"
+popd
+
 mkdir build
 pushd build
 
