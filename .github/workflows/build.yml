@@ -112,8 +112,6 @@ jobs:
           scripts/build.sh mpg123
           scripts/build.sh SDL2_mixer
           scripts/build.sh freetype -DCMAKE_DISABLE_FIND_PACKAGE_HarfBuzz=TRUE
-          scripts/build.sh harfbuzz
-          NOLICENSE=1 scripts/build.sh freetype
 
       - name: Remove bin
         run: $CHROOT rm -rf output/bin
