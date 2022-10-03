@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.1.1o
+VERSION=1.1.1q
 
 curl -L https://www.openssl.org/source/openssl-"$VERSION".tar.gz | tar -xz
 

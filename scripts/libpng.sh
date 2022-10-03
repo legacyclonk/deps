@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.6.37
+VERSION=1.6.38
 
 curl -L https://downloads.sourceforge.net/sourceforge/libpng/libpng-"$VERSION".tar.gz | tar -xz
 
