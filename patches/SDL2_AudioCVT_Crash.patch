@@ -1,0 +1,11 @@
+--- a/src/audio/SDL_audiocvt.c	2022-10-24 19:50:46.212851964 +0200
++++ b/src/audio/SDL_audiocvt.c	2022-10-24 19:50:48.702883360 +0200
+@@ -199,7 +199,7 @@
+     /* Note that this used to be double, but it looks like we can get by with float in most cases at
+        almost twice the speed on Intel processors, and orders of magnitude more
+        on CPUs that need a software fallback for double calculations. */
+-    typedef float ResampleFloatType;
++    typedef double ResampleFloatType;
+ 
+     const ResampleFloatType finrate = (ResampleFloatType) inrate;
+     const ResampleFloatType outtimeincr = ((ResampleFloatType) 1.0f) / ((ResampleFloatType) outrate);
