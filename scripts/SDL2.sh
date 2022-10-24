@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.24.0
+VERSION=2.24.1
 curl -L https://github.com/libsdl-org/SDL/releases/download/release-"$VERSION"/SDL2-"$VERSION".tar.gz | tar -xz
 
 mkdir build
