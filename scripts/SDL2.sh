@@ -14,10 +14,6 @@ cmake ../SDL2-"$VERSION" -DSDL_RENDER_METAL=Off -DSDL_METAL=Off  $CMAKE_CONFIGUR
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
-LIBS=("$PWD"/"${OUTDIR}"*"$LIBSUFFIX")
-popd
-pushd SDL2-"$VERSION"
-INCLUDES=("$PWD"/include/*)
 popd
 
 license SDL2 "SDL2-$VERSION/LICENSE.txt" zlib
