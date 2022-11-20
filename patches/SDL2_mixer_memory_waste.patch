@@ -1,0 +1,27 @@
+From 1203d44e055f8a978dd731a0fe1a205d840b581f Mon Sep 17 00:00:00 2001
+From: Markus Mittendrein <maxmitti@maxmitti.tk>
+Date: Sun, 20 Nov 2022 16:15:33 +0100
+Subject: [PATCH] Fix huge memory waste with resampled sound samples
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+At the moment SDL’s sample rate conversion requests a really big buffer which is 4x the necessary size when the target format is 16 bit integer.
+In some cases we even saw buffers 6x the necessary size. This change ensures that after format conversion only the necessary buffer size is kept.
+---
+ src/mixer.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/mixer.c b/src/mixer.c
+index d713df50..67c14551 100644
+--- a/src/mixer.c
++++ b/src/mixer.c
+@@ -860,7 +860,7 @@ Mix_Chunk *Mix_LoadWAV_RW(SDL_RWops *src, int freesrc)
+             return(NULL);
+         }
+ 
+-        chunk->abuf = wavecvt.buf;
++        chunk->abuf = SDL_realloc(wavecvt.buf, wavecvt.len_cvt);
+         chunk->alen = wavecvt.len_cvt;
+         wavfree = 0;
+     }

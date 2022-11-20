@@ -9,6 +9,7 @@ curl -L https://github.com/libsdl-org/SDL_mixer/releases/download/release-"$VERS
 pushd SDL2_mixer-"$VERSION"
 
 patch -p1 <"$PATCH_DIR/SDL2_mixer.patch"
+patch -p1 <"$PATCH_DIR/SDL2_mixer_memory_waste.patch"
 
 mkdir build
 pushd build
