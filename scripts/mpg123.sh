@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.30.2
+VERSION=1.31.1
 curl -L https://downloads.sourceforge.net/sourceforge/mpg123/mpg123-"$VERSION".tar.bz2 | tar -xj
 
 mkdir build
