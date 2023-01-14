@@ -46,6 +46,15 @@
      endif()
  endif()
  
+@@ -661,7 +661,7 @@
+             add_dependencies(SDL2_mixer MPG123::mpg123)
+         endif()
+     else()
+-        target_link_libraries(SDL2_mixer PRIVATE MPG123::mpg123)
++        target_link_libraries(SDL2_mixer PRIVATE MPG123::libmpg123)
+     endif()
+ endif()
+ 
 @@ -705,7 +705,7 @@
          target_link_libraries(SDL2_mixer PRIVATE winmm)
      elseif(APPLE)
@@ -55,10 +64,11 @@
      elseif(HAIKU)
          enable_language(CXX)
          target_sources(SDL2_mixer PRIVATE src/codecs/native_midi/native_midi_haiku.cpp)
-@@ -783,7 +783,6 @@
+@@ -782,8 +782,6 @@
+                 cmake/Findlibxmp-lite.cmake
                  cmake/Findmodplug.cmake
                  cmake/Findopusfile.cmake
-                 cmake/FindMPG123.cmake
+-                cmake/FindMPG123.cmake
 -                cmake/Findvorbisfile.cmake
                  cmake/Findtremor.cmake
              DESTINATION "${PKG_PREFIX}"

@@ -10,6 +10,7 @@ pushd SDL2_mixer-"$VERSION"
 
 patch -p1 <"$PATCH_DIR/SDL2_mixer.patch"
 patch -p1 <"$PATCH_DIR/SDL2_mixer_memory_waste.patch"
+rm "cmake/FindMPG123.cmake"
 
 mkdir build
 pushd build
