@@ -3,7 +3,7 @@
 set -e
 
 VERSION=2.75
-PATCH=0
+PATCH=2
 
 curl -L https://download.gnome.org/sources/glib/"$VERSION"/glib-"$VERSION"."$PATCH".tar.xz | tar -xJ
 
