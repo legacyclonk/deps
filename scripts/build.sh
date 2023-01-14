@@ -18,8 +18,8 @@ function license()
 		LICENSE_NAME="@$3"
 	fi
 	FILENAME=$(basename "$1")
-	iconv -f UTF-8 -t Windows-1252 "$2" > "$OUTPUT_DIR/licenses/$FILENAME"
-	echo "list(APPEND LICENSES \""'${CMAKE_CURRENT_LIST_DIR}/licenses/'"$FILENAME@$1$LICENSE_NAME\")" >>$OUTPUT_DIR/licenses.cmake
+	iconv -f UTF-8 -t Windows-1252 "$2" > "$OUTPUT_DIR/lc_licenses/$FILENAME"
+	echo "list(APPEND LICENSES \""'${CMAKE_CURRENT_LIST_DIR}/lc_licenses/'"$FILENAME@$1$LICENSE_NAME\")" >>$OUTPUT_DIR/licenses.cmake
 }
 export -f license
 

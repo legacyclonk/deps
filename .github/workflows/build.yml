@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: "Setup Directories"
-        run: mkdir -p output output/lib output/include output/licenses
+        run: mkdir -p output output/lib output/include output/lc_licenses
 
       - name: "Configure Arguments: Common"
         run: |
