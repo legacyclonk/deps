@@ -5,6 +5,10 @@ set -e
 VERSION=2.26.2
 curl -L https://github.com/libsdl-org/SDL/releases/download/release-"$VERSION"/SDL2-"$VERSION".tar.gz | tar -xz
 
+pushd SDL2-"$VERSION"
+patch -p1 <"$PATCH_DIR/SDL2_macos_context_deletion_black_screen.patch"
+popd
+
 mkdir build
 pushd build
 
