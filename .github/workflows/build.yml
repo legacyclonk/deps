@@ -96,6 +96,7 @@ jobs:
           # scripts/build.sh libcurl
           scripts/build.sh fmt
           scripts/build.sh glew
+          scripts/build.sh libsamplerate
           scripts/build.sh SDL2
 
       - name: Build Linux
