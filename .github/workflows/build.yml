@@ -22,9 +22,6 @@ jobs:
           - os: ubuntu-20.04
             arch: x64
             env: Linux
-          - os: ubuntu-20.04
-            arch: x86
-            env: Linux
           - os: macos-12
             arch: x64
             env: Mac
@@ -62,14 +59,6 @@ jobs:
         uses: seanmiddleditch/gha-setup-vsdevenv@v3
         with:
           arch: ${{ env.VS_ARCH }}
-
-      - name: "Linux x86: Setup chroot"
-        if: ${{ matrix.env == 'Linux' && matrix.arch == 'x86' }}
-        run: |
-          curl -L https://github.com/legacyclonk/ubuntu-1804-x86-chroot/releases/download/2022-05-19/chroot.tar.xz | sudo tar xJ
-          curl -L https://raw.githubusercontent.com/legacyclonk/ubuntu-1804-x86-chroot/master/setup_chroot.sh | sudo bash -e -
-          sudo mkdir -p chroot/$PWD
-          sudo mount --bind . chroot/$PWD
 
       - name: "Linux: Setup packages"
         if: ${{ matrix.env == 'Linux' }}
