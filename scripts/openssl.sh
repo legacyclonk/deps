@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.1.1s
+VERSION=3.1.0
 
 curl -L https://www.openssl.org/source/openssl-"$VERSION".tar.gz | tar -xz
 
@@ -15,4 +15,4 @@ $MAKE_CMD install_sw
 
 popd
 
-license OpenSSL "openssl-$VERSION/LICENSE"
+license OpenSSL "openssl-$VERSION/LICENSE.txt"
