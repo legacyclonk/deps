@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.0.221121.5
+VERSION=2.0.230524.4
 
 curl -o cppwinrt.zip -L https://www.nuget.org/api/v2/package/Microsoft.Windows.CppWinRT/"$VERSION"
 
