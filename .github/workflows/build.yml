@@ -82,7 +82,7 @@ jobs:
 
       - name: Build
         run: |
-          # scripts/build.sh libcurl
+          scripts/build.sh libcurl
           scripts/build.sh fmt
           scripts/build.sh glew
           scripts/build.sh libsamplerate
