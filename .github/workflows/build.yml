@@ -82,6 +82,7 @@ jobs:
 
       - name: Build
         run: |
+          scripts/build.sh boost
           scripts/build.sh libcurl
           scripts/build.sh fmt
           scripts/build.sh glew
