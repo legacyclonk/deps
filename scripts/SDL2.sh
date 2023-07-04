@@ -6,10 +6,7 @@ VERSION=2.28.1
 curl -L https://github.com/libsdl-org/SDL/releases/download/release-"$VERSION"/SDL2-"$VERSION".tar.gz | tar -xz
 
 pushd SDL2-"$VERSION"
-patch -p1 <"$PATCH_DIR/SDL2_macos_context_deletion_black_screen.patch"
 python3 -c "import pathlib; p = pathlib.Path('cmake/sdlchecks.cmake'); p.write_bytes(p.read_bytes().replace(b'list(APPEND SDL_REQUIRES_PRIVATE SampleRate::samplerate)', b'list(APPEND EXTRA_LIBS samplerate)'))"
-# Add support for libsamplerate's "linear" resampling mode
-curl -L https://github.com/libsdl-org/SDL/commit/9b861d2ea4fbae0718a0c1ac37397ed5ba2a5b67.patch | patch -p1
 popd
 
 mkdir build
