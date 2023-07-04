@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=3.1.0
+VERSION=3.1.1
 
 curl -L https://www.openssl.org/source/openssl-"$VERSION".tar.gz | tar -xz
 

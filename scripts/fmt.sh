@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=9.1.0
+VERSION=10.0.0
 
 curl -L -o fmt.zip "https://github.com/fmtlib/fmt/releases/download/$VERSION/fmt-$VERSION.zip"
 7z x fmt.zip
