@@ -18,7 +18,7 @@ fi
 ./b2 tools/bcp
 
 mkdir output
-dist/bin/bcp json test output
+dist/bin/bcp json output
 
 mkdir -p "$OUTPUT_DIR/include"
 cp -r output/boost "$OUTPUT_DIR/include"
