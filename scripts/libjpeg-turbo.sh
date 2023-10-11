@@ -3,7 +3,7 @@
 set -e
 
 VERSION=3.0.0
-curl -L https://downloads.sourceforge.net/project/libjpeg-turbo/"$VERSION"/libjpeg-turbo-"$VERSION".tar.gz | tar -xz
+until curl -L https://downloads.sourceforge.net/project/libjpeg-turbo/"$VERSION"/libjpeg-turbo-"$VERSION".tar.gz | tar -xz; do sleep 1; done
 
 mkdir build
 pushd build
