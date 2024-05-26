@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=10.0.0
+VERSION=10.2.1
 
 curl -L -o fmt.zip "https://github.com/fmtlib/fmt/releases/download/$VERSION/fmt-$VERSION.zip"
 7z x fmt.zip
@@ -16,4 +16,4 @@ cmake --install . $CMAKE_BUILD_ARGS
 
 popd
 
-license fmt "fmt-$VERSION/LICENSE.rst" MIT
+license fmt "fmt-$VERSION/LICENSE" MIT
