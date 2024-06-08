@@ -89,6 +89,7 @@ jobs:
           scripts/build.sh glew
           scripts/build.sh libsamplerate
           scripts/build.sh SDL2
+          scripts/build.sh spdlog
 
       - name: Build Linux
         if: ${{ matrix.env == 'Linux' }}
