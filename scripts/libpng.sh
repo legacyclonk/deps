@@ -16,4 +16,7 @@ cmake --install . $CMAKE_BUILD_ARGS
 
 popd
 
+# Remove useless png.framework directory that confuses the linker
+rm -rf "$OUTPUT_DIR/lib/png.framework"
+
 license libpng "libpng-$VERSION/LICENSE"
