@@ -16,7 +16,7 @@ cat src/modplug.h.orig >> src/modplug.h
 mkdir build
 pushd build
 
-cmake .. $CMAKE_CONFIGURE_ARGS
+cmake .. -DCMAKE_CXX_STANDARD=14 $CMAKE_CONFIGURE_ARGS
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
