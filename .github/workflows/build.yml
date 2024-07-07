@@ -81,6 +81,7 @@ jobs:
 
       - name: Build
         run: |
+          scripts/build.sh boost
           scripts/build.sh catch2
           scripts/build.sh libcurl
           scripts/build.sh fmt
