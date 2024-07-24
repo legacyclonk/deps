@@ -8,6 +8,8 @@ curl -L https://miniupnp.tuxfamily.org/files/miniupnpc-"$VERSION".tar.gz | tar -
 
 pushd miniupnpc-"$VERSION"
 
+patch -p1 <"$PATCH_DIR/miniupnpc_install_paths.patch"
+
 mkdir build
 pushd build
 
