@@ -33,7 +33,7 @@ NEW_PATH=$(cd "$SCRIPT_DIR"; pwd -W 2>/dev/null || pwd)
 echo "$OLD_PATH -> $NEW_PATH"
 
 IFS=$'\n'
-FILES=($(find . \( -name '*.pc' -or -name '*.cmake' \)))
+FILES=($(find . \( -name '*.pc' -or -name '*.cmake' -type f \)))
 unset IFS
 
 perl -i -pe"s@$OLD_PATH@$NEW_PATH@g" "${FILES[@]}"
