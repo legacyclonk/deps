@@ -22,7 +22,7 @@ jobs:
           - os: ubuntu-20.04
             arch: x64
             env: Linux
-          - os: macos-12
+          - os: macos-13
             arch: x64
             env: Mac
 
