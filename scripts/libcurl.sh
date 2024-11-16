@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=8.8.0
+VERSION=8.11.0
 
 curl -L https://curl.haxx.se/download/curl-"$VERSION".tar.xz | tar -xJ
 
