@@ -12,7 +12,7 @@ pushd build
 OS_OPTIONS=""
 
 if [ "$OS" = "Mac" ]; then
-	OS_OPTIONS=-DCURL_USE_SECTRANSP=On
+	OS_OPTIONS="-DCURL_USE_SECTRANSP=On -DUSE_LIBIDN2=Off -DUSE_APPLE_IDN=On"
 elif [ "$OS" = "Windows" ]; then
 	OS_OPTIONS="-DCURL_USE_SCHANNEL=On -DENABLE_UNICODE=On"
 fi
