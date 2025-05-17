@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=3.4.4
+VERSION=3.4.8
 
 curl -L https://github.com/libffi/libffi/releases/download/v"$VERSION"/libffi-"$VERSION".tar.gz | tar -xz
 
