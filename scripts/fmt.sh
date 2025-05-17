@@ -2,10 +2,9 @@
 
 set -e
 
-VERSION=10.2.1
+VERSION=11.2.0
 
-curl -L -o fmt.zip "https://github.com/fmtlib/fmt/releases/download/$VERSION/fmt-$VERSION.zip"
-7z x fmt.zip
+curl -L "https://github.com/fmtlib/fmt/releases/download/$VERSION/fmt-$VERSION.tar.gz" | tar xz
 
 mkdir build
 pushd build
