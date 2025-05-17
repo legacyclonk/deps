@@ -4,7 +4,7 @@ set -e
 
 VERSION=11.2.0
 
-curl -L "https://github.com/fmtlib/fmt/releases/download/$VERSION/fmt-$VERSION.tar.gz" | tar xz
+curl -L "https://github.com/fmtlib/fmt/archive/refs/tags/$VERSION/$VERSION.tar.gz" | tar xz
 
 mkdir build
 pushd build
