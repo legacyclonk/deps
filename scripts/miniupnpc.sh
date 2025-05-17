@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.2.3
+VERSION=2.3.2
 
 curl -L https://miniupnp.tuxfamily.org/files/miniupnpc-"$VERSION".tar.gz | tar -xz
 
