@@ -19,7 +19,7 @@ jobs:
           - os: windows-latest
             arch: x64
             env: Windows
-          - os: ubuntu-20.04
+          - os: ubuntu-22.04
             arch: x64
             env: Linux
           - os: macos-13
