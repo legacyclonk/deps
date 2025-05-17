@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.6.3
+VERSION=2.8.1
 
 curl -L https://github.com/libsdl-org/SDL_mixer/releases/download/release-"$VERSION"/SDL2_mixer-"$VERSION".tar.gz | tar -xz --exclude="Xcode*"
 
