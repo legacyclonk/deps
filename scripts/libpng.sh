@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.6.43
+VERSION=1.6.48
 
 until curl -L https://downloads.sourceforge.net/sourceforge/libpng/libpng-"$VERSION".tar.gz | tar -xz; do sleep 1; done
 
