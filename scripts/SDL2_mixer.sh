@@ -8,8 +8,6 @@ curl -L https://github.com/libsdl-org/SDL_mixer/releases/download/release-"$VERS
 
 pushd SDL2_mixer-"$VERSION"
 
-rm "cmake/Findmpg123.cmake"
-
 mkdir build
 pushd build
 
