@@ -1,0 +1,19 @@
+--- a/src/CMakeLists.txt	2025-05-18 12:33:30.214862691 +0200
++++ b/src/CMakeLists.txt	2025-05-18 12:33:21.001028570 +0200
+@@ -526,14 +526,14 @@
+ endif()
+ 
+ if ( MACOSX_FRAMEWORK )
+-  install ( TARGETS fluidsynth libfluidsynth
++  install ( TARGETS libfluidsynth
+     EXPORT FluidSynthTargets
+     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+     FRAMEWORK DESTINATION "${FRAMEWORK_INSTALL_PREFIX}/${FRAMEWORK_INSTALL_DIR}"
+     ARCHIVE DESTINATION "${FRAMEWORK_INSTALL_PREFIX}/${FRAMEWORK_INSTALL_DIR}"
+ )
+ else ( MACOSX_FRAMEWORK )
+-  install ( TARGETS fluidsynth libfluidsynth
++  install ( TARGETS libfluidsynth
+     EXPORT FluidSynthTargets
+     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
