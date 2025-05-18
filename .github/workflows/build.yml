@@ -92,8 +92,6 @@ jobs:
       - name: Build Linux
         if: ${{ matrix.env == 'Linux' }}
         run: |
-          scripts/build.sh libffi
-          scripts/build.sh glib
           scripts/build.sh fluidsynth
 
       - name: Build more
