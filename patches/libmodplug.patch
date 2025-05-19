@@ -1,0 +1,9 @@
+--- a/libmodplug.pc.in	2025-05-19 17:54:11.306942502 +0200
++++ b/libmodplug.pc.in	2025-05-19 17:54:15.953455499 +0200
+@@ -8,5 +8,5 @@
+ Version: @VERSION@
+ Requires: 
+ Libs: -L${libdir} -lmodplug 
+-Libs.private: -lstdc++ -lm
++Libs.private: -lm
+ Cflags: -I${includedir}
