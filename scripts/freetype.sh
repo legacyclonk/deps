@@ -13,5 +13,8 @@ cmake ../freetype-"$VERSION" -DCMAKE_DISABLE_FIND_PACKAGE_BrotliDec=TRUE -DCMAKE
 cmake --build . $CMAKE_BUILD_ARGS
 cmake --install . $CMAKE_BUILD_ARGS
 
+# This is conflict with the system FindX11.cmake
+rm -r "$OUTPUT_DIR/lib/cmake/freetype"
+
 popd
 license freetype "freetype-$VERSION/docs/FTL.TXT"
