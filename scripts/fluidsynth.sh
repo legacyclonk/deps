@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.4.6
+VERSION=2.4.8
 
 curl -L https://github.com/FluidSynth/fluidsynth/archive/v"$VERSION".tar.gz | tar -xz
 
