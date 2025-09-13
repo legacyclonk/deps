@@ -12,6 +12,7 @@ pushd build
 cmake "../libsamplerate-$VERSION" \
 -DBUILD_TESTING=Off \
 -DLIBSAMPLERATE_EXAMPLES=Off \
+-DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 $CMAKE_CONFIGURE_ARGS
 
 cmake --build . $CMAKE_BUILD_ARGS
