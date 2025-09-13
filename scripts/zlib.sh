@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.2.4
+VERSION=2.2.5
 curl -L https://github.com/zlib-ng/zlib-ng/archive/refs/tags/"$VERSION".tar.gz | tar -xz
 
 mkdir build
