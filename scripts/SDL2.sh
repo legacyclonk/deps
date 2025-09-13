@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.32.6
+VERSION=2.32.10
 curl -L https://github.com/libsdl-org/SDL/releases/download/release-"$VERSION"/SDL2-"$VERSION".tar.gz | tar -xz
 
 pushd SDL2-"$VERSION"
