@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.3.5
+VERSION=1.3.6
 
 curl -L https://ftp.osuosl.org/pub/xiph/releases/ogg/libogg-"$VERSION".tar.gz | tar -xz
 
