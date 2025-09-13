@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.88.0
+VERSION=1.89.0
 curl -L "https://github.com/boostorg/boost/releases/download/boost-$VERSION/boost-$VERSION-b2-nodocs.tar.gz" | tar xz
 
 pushd boost-$VERSION
