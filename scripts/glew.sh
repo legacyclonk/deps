@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.2.0
+VERSION=2.3.1
 
 until curl -L https://downloads.sourceforge.net/glew/glew-"$VERSION".tgz | tar -xz; do sleep 1; done
 
