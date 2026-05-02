@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "CC=$GCC_PREFIX-gcc-$GCC_VERSION" >> $GITHUB_ENV
+echo "CXX=$GCC_PREFIX-g++-$GCC_VERSION" >> $GITHUB_ENV
