@@ -33,6 +33,9 @@ jobs:
           - os: macos-15-intel
             arch: x64
             env: Mac
+          - os: macos-latest
+            arch: aarch64
+            env: Mac
 
     runs-on: ${{ matrix.os }}
     env:
@@ -58,6 +61,10 @@ jobs:
       - name: "Configure Arguments: Architecture"
         run: |
           platforms/${{ matrix.env }}-${{ matrix.arch }}.sh
+
+      - name: "Configure Arguments: After Architecture"
+        run: |
+          platforms/${{ matrix.env }}-afterarch.sh
 
       - name: "Set CMake paths"
         run: |
