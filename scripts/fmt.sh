@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=11.2.0
+VERSION=12.1.0
 
 curl -L "https://github.com/fmtlib/fmt/archive/refs/tags/$VERSION/$VERSION.tar.gz" | tar xz
 
