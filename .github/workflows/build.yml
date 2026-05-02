@@ -41,7 +41,7 @@ jobs:
       GCC_ARCH: ${{ matrix.gcc_arch }}
       GCC_VERSION: '16.1.0'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: "Setup Directories"
         run: mkdir -p output output/lib output/include output/lc_licenses
@@ -66,7 +66,7 @@ jobs:
 
       - name: "Windows: Setup VS Dev Environment"
         if: ${{ matrix.env == 'Windows' }}
-        uses: seanmiddleditch/gha-setup-vsdevenv@v3
+        uses: seanmiddleditch/gha-setup-vsdevenv@v5
         with:
           arch: ${{ env.VS_ARCH }}
 
@@ -127,7 +127,7 @@ jobs:
       - name: Result
         run: ls -R output
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.env }}-${{ matrix.arch }}
           include-hidden-files: true
@@ -141,7 +141,7 @@ jobs:
           tar -czf lc_deps-${{ matrix.env }}-${{ matrix.arch }}.tar.gz *
 
       - name: Release
-        uses: ncipollo/release-action@v1.11.2
+        uses: ncipollo/release-action@v1
         if: ${{ env.IS_RELEASE == 'true' }}
         with:
           artifacts: output/lc_deps-${{ matrix.env }}-${{ matrix.arch }}.tar.gz
