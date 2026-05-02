@@ -21,6 +21,11 @@ jobs:
             env: Windows
           - os: ubuntu-22.04
             arch: x64
+            gcc_arch: x86_64
+            env: Linux
+          - os: ubuntu-22.04-arm
+            arch: aarch64
+            gcc_arch: aarch64
             env: Linux
           - os: macos-13
             arch: x64
@@ -30,6 +35,8 @@ jobs:
     env:
       OS: ${{ matrix.env }}
       IS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/') }}
+      GCC_ARCH: ${{ matrix.gcc_arch }}
+      GCC_VERSON: '16.1.0'
     steps:
       - uses: actions/checkout@v3
 
