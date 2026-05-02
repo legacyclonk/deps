@@ -2,22 +2,9 @@ diff --git a/build/cmake/CMakeLists.txt b/build/cmake/CMakeLists.txt
 index 419c243..4ddb08f 100644
 --- a/build/cmake/CMakeLists.txt
 +++ b/build/cmake/CMakeLists.txt
-@@ -1,10 +1,11 @@
-+cmake_minimum_required (VERSION 3.10)
-+
- if ( NOT DEFINED CMAKE_BUILD_TYPE )
-   set( CMAKE_BUILD_TYPE Release CACHE STRING "Build type" )
- endif ()
- 
- project (glew C)
- 
--cmake_minimum_required (VERSION 2.8.12)
- 
- include(GNUInstallDirs)
- 
-@@ -40,7 +41,11 @@ set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
- set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
- set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+@@ -36,7 +37,11 @@ set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+   set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+ endif()
  
 -find_package (OpenGL REQUIRED)
 +if (APPLE)
@@ -26,5 +13,5 @@ index 419c243..4ddb08f 100644
 +  find_package (OpenGL REQUIRED)
 +endif ()
  
- # X11 required except for Windows and Apple OSX platforms
- if (NOT WIN32 AND NOT APPLE)
+ # prefer GLVND
+ if (OPENGL_opengl_LIBRARY)
