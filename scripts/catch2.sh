@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=3.10.0
+VERSION=3.14.0
 
 curl -L "https://github.com/catchorg/Catch2/archive/refs/tags/v$VERSION.tar.gz" | tar xz
 
