@@ -5,6 +5,10 @@ set -e
 VERSION=1.33.5
 until curl -L https://downloads.sourceforge.net/sourceforge/mpg123/mpg123-"$VERSION".tar.bz2 | tar -xj; do sleep 1; done
 
+pushd mpg123-"$VERSION"
+patch -p1 <"$PATCH_DIR/mpg123_all_arm64_have_fpu.patch"
+popd
+
 mkdir build
 pushd build
 
