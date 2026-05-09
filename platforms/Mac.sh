@@ -3,7 +3,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 brew update
 brew install "llvm@$LLVM_VERSION" ninja
-LLVM_PREFIX="$(brew --prefix llvm@22)"
+LLVM_PREFIX="$(brew --prefix "llvm@$LLVM_VERSION")"
 
 echo "LLVM_PREFIX=$LLVM_PREFIX" >> $GITHUB_ENV
 echo "CMAKE_CONFIGURE_ARGS=$CMAKE_CONFIGURE_ARGS -DCMAKE_TOOLCHAIN_FILE=$PWD/platforms/clang_mac.cmake" >> $GITHUB_ENV
