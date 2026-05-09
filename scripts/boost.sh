@@ -3,23 +3,15 @@
 set -e
 
 VERSION=1.91.0-1
-curl -L "https://github.com/boostorg/boost/releases/download/boost-$VERSION/boost-$VERSION-b2-nodocs.tar.gz" | tar xz
+curl -L "https://github.com/boostorg/boost/releases/download/boost-$VERSION/boost-$VERSION-cmake.tar.gz" | tar xz
 
-pushd boost-$VERSION
+mkdir build
+pushd build
 
-if [ "$OS" = "Windows" ]; then
-	./bootstrap.bat
-else
-	./bootstrap.sh
-fi
-
-./b2 tools/bcp
-
-mkdir output
-dist/bin/bcp json output
-
-mkdir -p "$OUTPUT_DIR/include"
-cp -r output/boost "$OUTPUT_DIR/include"
+cmake "../boost-$VERSION" -DBOOST_INCLUDE_LIBRARIES=json -DBOOST_RUNTIME_LINK=static -DBOOST_STAGEDIR="$OUTPUT_DIR" $CMAKE_CONFIGURE_ARGS
+cmake --build . $CMAKE_BUILD_ARGS
+cmake --install . $CMAKE_BUILD_ARGS
 
 popd
+
 license Boost "boost-$VERSION/LICENSE_1_0.txt"
