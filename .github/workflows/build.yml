@@ -135,18 +135,17 @@ jobs:
       - name: Result
         run: ls -R output
 
-      - uses: actions/upload-artifact@v7
-        with:
-          name: ${{ matrix.env }}-${{ matrix.arch }}
-          include-hidden-files: true
-          path: |
-            output/*
-
       - name: Pack
-        if: ${{ env.IS_RELEASE == 'true' }}
         run: |
           cd output
           tar -czf lc_deps-${{ matrix.env }}-${{ matrix.arch }}.tar.gz *
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.env }}-${{ matrix.arch }}
+          archive: false
+          include-hidden-files: true
+          path: output/lc_deps-${{ matrix.env }}-${{ matrix.arch }}.tar.gz
 
       - name: Release
         uses: ncipollo/release-action@v1
