@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=3.6.2
+VERSION=4.0.0
 
 curl -L https://github.com/openssl/openssl/releases/download/openssl-"$VERSION"/openssl-"$VERSION".tar.gz | tar -xz
 
