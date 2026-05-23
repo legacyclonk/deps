@@ -9,7 +9,7 @@ NINJA_PREFIX="$(brew --prefix ninja)"
 echo "LLVM_PREFIX=$LLVM_PREFIX" >> $GITHUB_ENV
 echo "NINJA_PREFIX=$NINJA_PREFIX" >> $GITHUB_ENV
 
-echo "CMAKE_CONFIGURE_ARGS=$CMAKE_CONFIGURE_ARGS -DCMAKE_TOOLCHAIN_FILE=$PWD/platforms/clang_mac.cmake" >> $GITHUB_ENV
+echo "CMAKE_CONFIGURE_ARGS=$CMAKE_CONFIGURE_ARGS -DCMAKE_TOOLCHAIN_FILE=$PWD/platforms/clang_mac.cmake -G Ninja" >> $GITHUB_ENV
 echo "MAKE_CMD=make -j$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
 echo "CC=$LLVM_PREFIX/bin/clang" >> $GITHUB_ENV
 echo "CXX=$LLVM_PREFIX/bin/clang++" >> $GITHUB_ENV
