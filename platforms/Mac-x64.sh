@@ -16,7 +16,7 @@ LLVM_CXX_INCLUDE=$PWD/libexec/llvm-21/include/c++/v1
 LLVM_CXX_LIB=$PWD/libexec/llvm-21/lib/libc++
 
 echo "LLVM_CXX_INCLUDE=$LLVM_CXX_INCLUDE" >> $GITHUB_ENV
-echo "LLVM_CXX_LIB=$LLVM_CXX_LIB" >> $GITHUB_ENV
+echo "LLVM_CXX_LIB=$LLVM_CXX_LIB" >> $GITHUB_ENVecho "LIBCLANG_RT=$PWD/libexec/llvm-21/lib/clang/21/lib/darwin/libclang_rt.profile_osx.a $PWD/libexec/llvm-21/lib/clang/21/lib/darwin/libclang_rt.fuzzer_interceptors_osx.a $PWD/libexec/llvm-21/lib/clang/21/lib/darwin/libclang_rt.fuzzer_osx.a $PWD/libexec/llvm-21/lib/clang/21/lib/darwin/libclang_rt.osx.a $PWD/libexec/llvm-21/lib/clang/21/lib/darwin/libclang_rt.cc_kext.a $PWD/libexec/llvm-21/lib/clang/21/lib/darwin/libclang_rt.fuzzer_no_main_osx.a" >> $GITHUB_ENV
 
 popd
 
