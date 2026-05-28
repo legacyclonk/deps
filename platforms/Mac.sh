@@ -2,7 +2,7 @@
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 brew update
-brew install "llvm@$LLVM_VERSION" ninja
+brew install "llvm@$LLVM_VERSION" "lld@$LLVM_VERSION" ninja
 LLVM_PREFIX="$(brew --prefix "llvm@$LLVM_VERSION")"
 NINJA_PREFIX="$(brew --prefix ninja)"
 
@@ -13,3 +13,4 @@ echo "CMAKE_CONFIGURE_ARGS=$CMAKE_CONFIGURE_ARGS -DCMAKE_TOOLCHAIN_FILE=$PWD/pla
 echo "MAKE_CMD=make -j$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
 echo "CC=$LLVM_PREFIX/bin/clang" >> $GITHUB_ENV
 echo "CXX=$LLVM_PREFIX/bin/clang++" >> $GITHUB_ENV
+echo "BUILD_TOOL_URL=https://github.com/legacyclonk/deps/releases/download/2026-05-24-tools" >> $GITHUB_ENV
