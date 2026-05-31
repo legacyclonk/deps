@@ -4,7 +4,7 @@ set -e
 
 VERSION=0.8.9.0
 
-until curl -L https://downloads.sourceforge.net/modplug-xmms/libmodplug-"$VERSION".tar.gz | tar -xz; do sleep 1; done
+dl_ext_source "https://downloads.sourceforge.net/modplug-xmms/libmodplug-$VERSION.tar.gz"
 
 pushd libmodplug-"$VERSION"
 curl -L -O https://github.com/Konstanty/libmodplug/raw/c855db2a0938aaac4bd686a345e0d1b09564f181/CMakeLists.txt

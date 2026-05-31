@@ -4,7 +4,7 @@ set -e
 
 VERSION=1.3.6
 
-curl -L https://ftp.osuosl.org/pub/xiph/releases/ogg/libogg-"$VERSION".tar.gz | tar -xz
+dl_ext_source "https://ftp.osuosl.org/pub/xiph/releases/ogg/libogg-$VERSION.tar.gz"
 
 mkdir build
 pushd build

@@ -3,8 +3,7 @@
 set -e
 
 VERSION=2.14.3
-
-curl -L https://download-mirror.savannah.gnu.org/releases/freetype/freetype-"$VERSION".tar.gz | tar -xz
+dl_ext_source "https://download-mirror.savannah.gnu.org/releases/freetype/freetype-$VERSION.tar.gz"
 
 mkdir build
 pushd build

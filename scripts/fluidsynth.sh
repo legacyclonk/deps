@@ -4,7 +4,7 @@ set -e
 
 VERSION=2.4.8
 
-curl -L https://github.com/FluidSynth/fluidsynth/archive/v"$VERSION".tar.gz | tar -xz
+dl_ext_source https://github.com/FluidSynth/fluidsynth/archive/v"$VERSION".tar.gz
 
 pushd fluidsynth-"$VERSION"
 patch -p1 <"$PATCH_DIR/Fluidsynth_no_binary.patch"

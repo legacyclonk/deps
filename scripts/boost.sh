@@ -3,7 +3,7 @@
 set -e
 
 VERSION=1.91.0-1
-curl -L "https://github.com/boostorg/boost/releases/download/boost-$VERSION/boost-$VERSION-cmake.tar.gz" | tar xz
+dl_ext_source "https://github.com/boostorg/boost/releases/download/boost-$VERSION/boost-$VERSION-cmake.tar.gz"
 
 mkdir build
 pushd build

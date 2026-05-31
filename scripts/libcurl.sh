@@ -4,7 +4,7 @@ set -e
 
 VERSION=8.20.0
 
-curl -L https://curl.haxx.se/download/curl-"$VERSION".tar.xz | tar -xJ
+dl_ext_source "https://curl.haxx.se/download/curl-$VERSION.tar.xz"
 
 mkdir build
 pushd build

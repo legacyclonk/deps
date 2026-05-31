@@ -4,7 +4,7 @@ set -e
 
 VERSION=2.3.3
 
-curl -L https://miniupnp.tuxfamily.org/files/miniupnpc-"$VERSION".tar.gz | tar -xz
+dl_ext_source "https://miniupnp.tuxfamily.org/files/miniupnpc-$VERSION.tar.gz"
 
 pushd miniupnpc-"$VERSION"
 

@@ -4,7 +4,7 @@ set -e
 
 VERSION=0.2.2
 
-curl -L "https://github.com/libsndfile/libsamplerate/releases/download/$VERSION/libsamplerate-$VERSION.tar.xz" | tar -xJ
+dl_ext_source "https://github.com/libsndfile/libsamplerate/releases/download/$VERSION/libsamplerate-$VERSION.tar.xz"
 
 mkdir build
 pushd build

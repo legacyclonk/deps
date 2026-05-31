@@ -4,7 +4,7 @@ set -e
 
 VERSION=1.6.58
 
-until curl -L https://downloads.sourceforge.net/sourceforge/libpng/libpng-"$VERSION".tar.gz | tar -xz; do sleep 1; done
+dl_ext_source "https://downloads.sourceforge.net/sourceforge/libpng/libpng-$VERSION.tar.gz"
 
 mkdir build
 pushd build

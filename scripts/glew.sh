@@ -4,7 +4,7 @@ set -e
 
 VERSION=2.3.1
 
-until curl -L https://downloads.sourceforge.net/glew/glew-"$VERSION".tgz | tar -xz; do sleep 1; done
+dl_ext_source "https://downloads.sourceforge.net/glew/glew-$VERSION.tgz"
 
 pushd glew-"$VERSION"
 

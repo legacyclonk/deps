@@ -3,7 +3,7 @@
 set -e
 
 VERSION=2.32.10
-curl -L https://github.com/libsdl-org/SDL/releases/download/release-"$VERSION"/SDL2-"$VERSION".tar.gz | tar -xz
+dl_ext_source "https://github.com/libsdl-org/SDL/releases/download/release-$VERSION/SDL2-$VERSION.tar.gz"
 
 pushd SDL2-"$VERSION"
 python3 -c "import pathlib; p = pathlib.Path('cmake/sdlchecks.cmake'); p.write_bytes(p.read_bytes().replace(b'list(APPEND SDL_REQUIRES_PRIVATE SampleRate::samplerate)', b'list(APPEND EXTRA_LIBS samplerate)'))"

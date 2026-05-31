@@ -4,7 +4,7 @@ set -e
 
 VERSION=3.15.0
 
-curl -L "https://github.com/catchorg/Catch2/archive/refs/tags/v$VERSION.tar.gz" | tar xz
+dl_ext_source "https://github.com/catchorg/Catch2/archive/refs/tags/v$VERSION.tar.gz"
 
 mkdir build
 pushd build
