@@ -43,7 +43,7 @@ jobs:
       IS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/') && !endsWith(github.ref, '-tools') }}
       GCC_ARCH: ${{ matrix.gcc_arch }}
       GCC_VERSION: '16.1.0'
-      LLVM_VERSION: 21
+      LLVM_VERSION: 22
     steps:
       - uses: actions/checkout@v6
 
