@@ -103,7 +103,7 @@ jobs:
           scripts/build.sh fmt
           scripts/build.sh glew
           scripts/build.sh libsamplerate
-          scripts/build.sh SDL2
+          scripts/build.sh SDL
 
       - name: Build Linux
         if: ${{ matrix.env == 'Linux' }}
@@ -116,7 +116,7 @@ jobs:
           scripts/build.sh libvorbis
           scripts/build.sh libmodplug
           scripts/build.sh mpg123
-          scripts/build.sh SDL2_mixer
+          scripts/build.sh SDL_mixer
           scripts/build.sh freetype -DCMAKE_DISABLE_FIND_PACKAGE_HarfBuzz=TRUE
           scripts/build.sh miniupnpc
 
