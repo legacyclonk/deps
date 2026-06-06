@@ -82,7 +82,7 @@ jobs:
         if: ${{ matrix.env == 'Linux' }}
         run: |
           $CHROOT sudo apt-get update
-          DEBIAN_FRONTEND=noninteractive $CHROOT sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm meson ninja-build libffi-dev
+          DEBIAN_FRONTEND=noninteractive $CHROOT sudo apt-get -y --no-install-recommends install libgl-dev libasound2-dev libpulse-dev curl nasm meson ninja-build libffi-dev libxcursor-dev
 
       - name: Build zlib
         run: |
