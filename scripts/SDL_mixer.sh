@@ -11,8 +11,6 @@ pushd SDL3_mixer-"$VERSION"
 mkdir build
 pushd build
 
-perl -i -pe's/SDL3_mixer-static/SDL3_mixer/g' ../CMakeLists.txt
-
 cmake .. \
 	-DSDLMIXER_MIDI_FLUIDSYNTH=ON \
 	-DSDLMIXER_DEPS_SHARED=OFF \
