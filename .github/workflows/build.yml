@@ -103,6 +103,7 @@ jobs:
           scripts/build.sh fmt
           scripts/build.sh glew
           scripts/build.sh SDL
+          scripts/build.sh gcem
           scripts/build.sh fluidsynth
           scripts/build.sh libogg
           scripts/build.sh libvorbis
