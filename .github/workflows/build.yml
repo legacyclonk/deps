@@ -114,7 +114,6 @@ jobs:
         run: |
           scripts/build.sh libogg
           scripts/build.sh libvorbis
-          scripts/build.sh libmodplug
           scripts/build.sh mpg123
           scripts/build.sh SDL_mixer
           scripts/build.sh freetype -DCMAKE_DISABLE_FIND_PACKAGE_HarfBuzz=TRUE
