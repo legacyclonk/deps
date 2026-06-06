@@ -35,5 +35,6 @@ echo "LIBCLANG_RT=$LIBCLANG_DIR/libclang_rt.osx.a" >> $GITHUB_ENV
 popd
 
 OSX_SDK="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
-echo "LINK_FLAGS=-nostdlib++ $LLVM_CXX_LIB/libc++.a $LLVM_CXX_LIB/libc++abi.a $LLVM_CXX_LIB/libc++experimental.a --sysroot $OSX_SDK -mmacosx-version-min=$TARGET_OSX_VERSION" >> $GITHUB_ENV
+echo "LINK_FLAGS=-nostdlib++ --sysroot $OSX_SDK -mmacosx-version-min=$TARGET_OSX_VERSION" >> $GITHUB_ENV
+echo "LINK_LIBS=$LLVM_CXX_LIB/libc++.a $LLVM_CXX_LIB/libc++abi.a $LLVM_CXX_LIB/libc++experimental.a $LIBCLANG_RT" >> $GITHUB_ENV
 echo "C_XX_FLAGS=-nostdlib++ -nostdinc++ -I$LLVM_CXX_INCLUDE --sysroot $OSX_SDK -mmacosx-version-min=$TARGET_OSX_VERSION" >> $GITHUB_ENV
