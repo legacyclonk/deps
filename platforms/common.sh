@@ -1,2 +1,3 @@
 #!/bin/bash
 echo "CMAKE_CONFIGURE_ARGS=-DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=Off -DBUILD_TESTING=Off" >> $GITHUB_ENV
+echo "MESON_CONFIGURE_ARGS=-Ddefault_library=static" >> $GITHUB_ENV
