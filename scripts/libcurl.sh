@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=8.20.0
+VERSION=8.21.0
 
 dl_ext_source "https://curl.haxx.se/download/curl-$VERSION.tar.xz"
 
