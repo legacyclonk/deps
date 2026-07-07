@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=3.4.10
+VERSION=3.4.12
 dl_ext_source "https://github.com/libsdl-org/SDL/releases/download/release-$VERSION/SDL3-$VERSION.tar.gz"
 
 mkdir build
