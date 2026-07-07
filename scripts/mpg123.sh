@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.33.5
+VERSION=1.33.6
 dl_ext_source "https://downloads.sourceforge.net/sourceforge/mpg123/mpg123-$VERSION.tar.bz2"
 
 pushd mpg123-"$VERSION"
