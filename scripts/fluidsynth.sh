@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.5.4
+VERSION=2.5.6
 
 dl_ext_source https://github.com/FluidSynth/fluidsynth/archive/v"$VERSION".tar.gz
 
