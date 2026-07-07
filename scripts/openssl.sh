@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=4.0.0
+VERSION=4.0.1
 
 dl_ext_source "https://github.com/openssl/openssl/releases/download/openssl-$VERSION/openssl-$VERSION.tar.gz"
 
