@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=12.1.0
+VERSION=12.2.0
 
 dl_ext_source "https://github.com/fmtlib/fmt/archive/refs/tags/$VERSION/$VERSION.tar.gz"
 
