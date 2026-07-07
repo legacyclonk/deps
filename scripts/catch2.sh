@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=3.15.0
+VERSION=3.15.2
 
 dl_ext_source "https://github.com/catchorg/Catch2/archive/refs/tags/v$VERSION.tar.gz"
 
