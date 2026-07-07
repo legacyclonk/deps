@@ -32,9 +32,11 @@ jobs:
             env: Linux
           - os: macos-15-intel
             arch: x64
+            clang_arch: x86_64
             env: Mac
           - os: macos-latest
             arch: aarch64
+            clang_arch: arm64
             env: Mac
 
     runs-on: ${{ matrix.os }}
@@ -42,6 +44,7 @@ jobs:
       OS: ${{ matrix.env }}
       IS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/') && !endsWith(github.ref, '-tools') }}
       GCC_ARCH: ${{ matrix.gcc_arch }}
+      CLANG_ARCH: ${{ matrix.clang_arch }}
       GCC_VERSION: '16.1.0'
       LLVM_VERSION: 22
     steps:
