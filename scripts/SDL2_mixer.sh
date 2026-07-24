@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=2.8.1
+VERSION=2.8.2
 
 dl_ext_source "https://github.com/libsdl-org/SDL_mixer/releases/download/release-$VERSION/SDL2_mixer-$VERSION.tar.gz"
 
