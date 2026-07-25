@@ -2,58 +2,27 @@
 
 set -e
 
-function dl_ext_source()
-{
-	if [ $# -lt 1 ] || [ $# -gt 2 ]; then
-		echo "USAGE: source <url> [file extension]" >&2
-		return 1
-	fi
-
-	URL="$1"
-	if [ $# -eq 2 ]; then
-		EXT="$2"
-	else
-		EXT="${URL##*.}"
-	fi
-
-	TAR_FLAG=""
-	IS_ZIP=0
-	case $EXT in
-		"zip")
-			IS_ZIP=1
-			;;
-		"tar")
-			;;
-		"gz" | "tgz")
-			TAR_FLAG="-z"
-			;;
-		"xz")
-			TAR_FLAG="-J"
-			;;
-		"bz2" | "tbz2")
-			TAR_FLAG="-j"
-			;;
-		"zst")
-			TAR_FLAG="--zstd"
-			;;
-		*)
-			echo "Unknown extension: $EXT" >&2
-			return 2
-			;;
-	esac
-
-	FILE="source.tar.$EXT"
-	curl "$URL" -L --retry-all-errors --retry 10 -C - -o "$FILE" || return 3
-
-	if [ $IS_ZIP -eq 1 ]; then
-		unzip "$FILE"
-	else
-		tar -x $TAR_FLAG -f "$FILE"
-	fi
-
-	rm "$FILE"
+function abspath() {
+    # generate absolute path from relative path
+    # $1     : relative filename
+    # return : absolute path
+    if [ -d "$1" ]; then
+        # dir
+        (cd "$1"; pwd)
+    elif [ -f "$1" ]; then
+        # file
+        if [[ $1 = /* ]]; then
+            echo "$1"
+        elif [[ $1 == */* ]]; then
+            echo "$(cd "${1%/*}"; pwd)/${1##*/}"
+        else
+            echo "$(pwd)/$1"
+        fi
+    fi
 }
-export -f dl_ext_source
+
+SCRIPT_DIR=$(abspath "$(dirname "$0")")
+. "$SCRIPT_DIR/utils.sh"
 
 function license()
 {
