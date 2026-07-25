@@ -161,7 +161,3 @@ jobs:
           artifactErrorsFailBuild: true
           replacesArtifacts: true
           generateReleaseNotes: true
-
-      - name: Setup upterm session
-        uses: owenthereal/action-upterm@v1
-        if: ${{ failure() }}
